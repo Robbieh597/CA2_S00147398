@@ -1,0 +1,38 @@
+﻿@model CA2_S00147398.Models.Actors
+
+<div class="container">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            Are you sure you want to delete this?
+        </div>
+    </div>
+    <fieldset>
+        <legend>Actors</legend>
+        <div class="display-label">
+            <p class="lead">
+            @Html.DisplayNameFor(model => model.ActorName)
+            </p>
+            <p>
+            @Html.DisplayFor(model => model.ActorName)
+            </p>
+            <p class="lead">
+            @Html.DisplayNameFor(model => model.ScreenName)
+            </p>
+            <p>
+            @Html.DisplayFor(model => model.ScreenName)
+            </p>
+            <p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Delete" class="btn btn-danger btn-xs" />
+            }
+            </p>
+</div>
+</fieldset>
+
+    <div class="panel-footer">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-success" })
+    </div>
+</div>
+

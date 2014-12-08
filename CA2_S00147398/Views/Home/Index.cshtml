@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CA2_S00147398.Models.Movies>
+
+<div class="container">
+
+    <h2 class="lead">List of Movies</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-warning" })
+    </p>
+    <table class="table table-condensed table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span class="btn btn-xs btn-warning" onclick="showActors('@item.Actors')">
+                        @Html.DisplayFor(modelItem => item.MovieName)
+                    </span>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }, new { @class = "btn btn-info btn-xs" })
+                    @Html.ActionLink("Details", "Details", new { id = item.MovieId }, new { @class = "btn btn-success btn-xs" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieId }, new { @class = "btn btn-danger btn-xs" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+@section scripts
+{
+    <script>
+        $(function () {
+            toastr.info('Welcome to the Movie Database');
+        });
+        function showActor(actorId) {
+            $.ajax({
+                url: '@Url.Action("ActorById")',
+                data: { id: actorId },
+                success: function (data) {
+                    $('#Detail').hide();
+                    $('#Detail').html(data);
+                    $('#Detail').fadeIn(1000);
+                },
+                error: function () {
+                    $('#Detail').html("<h3>Couldn't find an actor</h3>");
+                }
+            })
+        }
+    </script>
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jquery.peity</id>
+    <version>1.2.1</version>
+    <title>Peity</title>
+    <authors>Ben Pickles</authors>
+    <owners>Ben Pickles</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>http://benpickles.github.io/peity/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Peity (sounds like deity) is a simple jQuery plugin that converts an element's content into a simple &lt;canvas&gt; mini pie, line or bar chart  and is compatible with any browser that supports &lt;canvas&gt;: Chrome, Firefox, IE9+, Opera, Safari</description>
+    <releaseNotes>Version 1.2.1 - 2013/11/21
+Ensure a line chart's outline doesn't spill off the canvas.</releaseNotes>
+    <language>en-GB</language>
+    <tags>jquery charts graphs</tags>
+    <dependencies>
+      <dependency id="jQuery" version="1.6.0" />
+    </dependencies>
+  </metadata>
+</package>

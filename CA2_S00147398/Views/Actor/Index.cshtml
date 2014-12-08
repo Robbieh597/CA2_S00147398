@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CA2_S00147398.Models.Actors>
+<div class="container">
+
+    <h2 class="lead">List of Actors and Screen Names</h2>
+
+    <table id='ActorsTable' class="table table-condensed table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ActorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScreenName)
+            </th>
+            <th>
+                @Html.ActionLink("Sort Actor Names", "Index", new {sortOrder = ViewBag.NameSortParm})
+            </th>
+            <div>
+                @using (Html.BeginForm())
+                { 
+                    <p>
+                        Find by name: @Html.TextBox("searchString")
+                        <input type="submit" value="Search" />
+                    </p>
+                }
+            </div>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScreenName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ActorId }, new { @class = "btn btn-info btn-xs" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ActorId }, new { @class = "btn btn-danger btn-xs" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

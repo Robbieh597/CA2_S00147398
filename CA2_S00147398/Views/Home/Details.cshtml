@@ -1,0 +1,50 @@
+﻿@model CA2_S00147398.Models.Movies
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th><b>Movie Name:</b></th>
+            <th><b>Movie Descritpion:</b></th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.MovieName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Add", "Create", "Actor", new { movieID = Model.MovieId }, new { @class = "btn btn-xs btn-primary" })
+</p>
+@if (Model.Actors != null)
+{
+    <div class="table">
+        <table class="table table-hover">
+            <tr>
+                <td>
+                    @foreach (var mov in Model.Actors)
+                    {
+                        <p>
+                            @Html.DisplayFor(modelItem => mov.ActorName) is an actor in  @Html.DisplayFor(model => model.MovieName) and, played @Html.DisplayFor(modelItem => mov.ScreenName).
+                            @Html.ActionLink("Delete", "Delete", "Actor", new { id = mov.ActorId }, new { @class = "btn btn-danger btn-xs" })
+                            @Html.ActionLink("Edit", "Edit", "Actor", new { id = mov.ActorId }, new { @class = "btn btn-info btn-xs" })
+                        </p>
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+else
+{
+    <p class="alert alert-info">No actors found!!</p>
+        
+    <p>
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-success" })
+    </p>
+}

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CA2_S00147398.Models.Actors>
+<div>
+    @Html.DisplayNameFor(model => model.ActorName)
+    @Html.DisplayNameFor(model => model.ScreenName)
+</div>
+<div>
+    @foreach (var item in Model)
+    {
+        @Html.DisplayFor(modelItem => item.ActorName)
+        @Html.DisplayFor(modelItem => item.ScreenName)
+    }
+</div>
+
